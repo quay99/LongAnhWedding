@@ -127,6 +127,11 @@ function applyConfigToDOM(config) {
     const heroBg = document.getElementById('dyn-hero-bg');
     if (heroBg && config.cover_photo) {
       heroBg.style.backgroundImage = `url('${config.cover_photo}')`;
+      if (config.cover_position) {
+        heroBg.style.backgroundPosition = config.cover_position;
+      } else {
+        heroBg.style.backgroundPosition = 'center';
+      }
     }
 
     // 3. Nhạc nền

@@ -410,8 +410,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('cfg-story-4-title').value = config.story_4_title || '';
     document.getElementById('cfg-story-4-desc').value = config.story_4_desc || '';
 
-    // Đường dẫn ảnh bìa
+    // Đường dẫn ảnh bìa & Vị trí hiển thị
     document.getElementById('cfg-cover-photo').value = config.cover_photo || '';
+    const coverPosEl = document.getElementById('cfg-cover-position');
+    if (coverPosEl) coverPosEl.value = config.cover_position || 'center top';
     
     // Khởi tạo và kết xuất ảnh trong album cưới không giới hạn
     renderGalleryEditorItems(config.gallery_images || []);
@@ -793,7 +795,8 @@ document.addEventListener('DOMContentLoaded', () => {
         story_4_title: document.getElementById('cfg-story-4-title').value.trim(),
         story_4_desc: document.getElementById('cfg-story-4-desc').value.trim(),
 
-        cover_photo: document.getElementById('cfg-cover-photo').value.trim()
+        cover_photo: document.getElementById('cfg-cover-photo').value.trim(),
+        cover_position: document.getElementById('cfg-cover-position') ? document.getElementById('cfg-cover-position').value : 'center top'
       };
 
       // Xây dựng mảng gallery_images từ các thẻ ảnh cưới động

@@ -14,7 +14,7 @@ const DEFAULT_WEDDING_CONFIG = {
   // 2. CHÚ RỂ (GROOM)
   groom_name: "Đình Long",
   groom_fullname: "Lê Đình Long",
-  groom_bio: "Một chàng trai thích trải nghiệm, kiên trì và luôn mang năng lượng ấm áp. Với anh, che chở và mang lại hạnh phúc trọn vẹn cho Lan Anh là sứ mệnh cả cuộc đời.",
+  groom_bio: "Một chàng trai thích trải nghiệm, kiên trì và luôn mang năng lượng ấm áp. Với anh, che chở và mang lại hạnh phúc trọn vẹn cho Trần Ánh là sứ mệnh cả cuộc đời.",
   groom_photo: "CD ANH/DSC03817_1.JPG",
   groom_facebook: "#",
   groom_instagram: "#",
@@ -22,7 +22,7 @@ const DEFAULT_WEDDING_CONFIG = {
   // 3. CÔ DÂU (BRIDE)
   bride_name: "Trần Ánh",
   bride_fullname: "Trần Thị Ánh",
-  bride_bio: "Cô gái nhạy cảm, thích cắm hoa và luôn tin vào những điều kỳ diệu của tình yêu. Hạnh phúc lớn nhất là khi tìm thấy Thế Anh - mảnh ghép định mệnh của đời mình.",
+  bride_bio: "Cô gái nhạy cảm, thích cắm hoa và luôn tin vào những điều kỳ diệu của tình yêu. Hạnh phúc lớn nhất là khi tìm thấy Đình Long - mảnh ghép định mệnh của đời mình.",
   bride_photo: "CD ANH/DSC03871_1.JPG",
   bride_facebook: "#",
   bride_instagram: "#",
@@ -33,7 +33,7 @@ const DEFAULT_WEDDING_CONFIG = {
   vuquy_venue: "Tư gia nhà gái",
   vuquy_address: "Cột 8, Phường Hạ Long, Tỉnh Quảng Ninh",
   vuquy_map: "https://maps.google.com/?q=123+Co+Giang,+Quan+1,+TP+HCM",
-  vuquy_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Vu+Quy+Thế+Anh+&amp;Lan+Anh&dates=20261121T020000Z/20261121T050000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Vu+Quy+tại+Tư+gia+nhà+gái&location=123+Cô+Giang,+Quận+1,+TP.HCM",
+  vuquy_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Vu+Quy+Đình+Long+&amp;Trần+Ánh&dates=20260725T020000Z/20260725T050000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Vu+Quy+tại+Tư+gia+nhà+gái&location=Cột+8,+Phường+Hạ+Long,+Tỉnh+Quảng+Ninh",
   
   // 5. LỄ THÀNH HÔN - NHÀ TRAI (THANH HON EVENT)
   thanhhon_time: "17:00 - Chủ Nhật, 02/08/2026",
@@ -41,7 +41,7 @@ const DEFAULT_WEDDING_CONFIG = {
   thanhhon_venue: "Trung tâm hội nghị & tiệc cưới Royal Lotus Hotel Danang",
   thanhhon_address: "120A Nguyễn Văn Thoại, Ngũ Hành Sơn, Đà Nẵng",
   thanhhon_map: "https://maps.google.com/?q=Romance+Palace+456+Nguyen+Hue,+Quan+1,+TP+HCM",
-  thanhhon_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Thành+Hôn+Thế+Anh+&amp;Lan+Anh&dates=20261122T040000Z/20261122T080000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Thành+Hôn+tại+Romance+Palace&location=456+Nguyễn+Huệ,+Quận+1,+TP.HCM",
+  thanhhon_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Thành+Hôn+Đình+Long+&amp;Trần+Ánh&dates=20260802T100000Z/20260802T140000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Thành+Hôn+tại+Royal+Lotus+Hotel+Danang&location=120A+Nguyễn+Văn+Thoại,+Ngũ+Hành+Sơn,+Đà+Nẵng",
   
   // 6. CÂU CHUYỆN TÌNH YÊU (LOVE STORY TIMELINE)
   story_1_date: "Tháng 11 . 2022",
@@ -62,6 +62,7 @@ const DEFAULT_WEDDING_CONFIG = {
   
   // 7. BÌA & MẢNG DỮ LIỆU ALBUM ẢNH KHÔNG GIỚI HẠN (DYNAMIC UNLIMITED WEDDING GALLERY)
   cover_photo: "CD ANH/DSC03755_1.JPG",
+  cover_position: "center top",
   
   gallery_images: [
     { url: "CD ANH/DSC03955_1.JPG", category: "dating" },
