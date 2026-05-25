@@ -7,6 +7,7 @@
  */
 
 const DEFAULT_WEDDING_CONFIG = {
+  config_version: "2.3", // Phiên bản cấu hình để tự động xóa cache khi có cập nhật code mới
   // 1. THÔNG TIN CHUNG (GENERAL INFO)
   wedding_date: "2026-02-08T10:00:00.000Z", // Ngày đếm ngược
   music_url: "https://files.catbox.moe/n121p0.mp3", // Nhạc nền mặc định
@@ -54,7 +55,7 @@ const DEFAULT_WEDDING_CONFIG = {
   
   story_3_date: "Tháng 01 . 2025",
   story_3_title: "Lời cầu hôn ngọt ngào",
-  story_3_desc: "Dưới bầu trời lấp lánh pháo hoa đêm giao thừa và những tiếng sóng vỗ nhẹ nhàng bên bờ biển thơ mộng, Thế Anh đã quỳ gối và trao chiếc nhẫn ước hẹn. Câu trả lời nghẹn ngào trong giọt nước mắt hạnh phúc của Lan Anh: \"Vâng, em đồng ý!\".",
+  story_3_desc: "Dưới bầu trời lấp lánh pháo hoa đêm giao thừa và những tiếng sóng vỗ nhẹ nhàng bên bờ biển thơ mộng, Đình Long đã quỳ gối và trao chiếc nhẫn ước hẹn. Câu trả lời nghẹn ngào trong giọt nước mắt hạnh phúc của Trần Ánh: \"Vâng, em đồng ý!\".",
   
   story_4_date: "Tháng 11 . 2026",
   story_4_title: "Ngày chung đôi",

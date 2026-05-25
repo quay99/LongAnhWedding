@@ -748,6 +748,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Thu thập thông tin cấu hình mới
       const updatedConfig = {
+        config_version: DEFAULT_WEDDING_CONFIG.config_version,
         wedding_date: isoDate,
         music_url: document.getElementById('cfg-music-url').value.trim(),
         

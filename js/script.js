@@ -57,6 +57,13 @@ function loadLocalConfiguration() {
   try {
     localConfig = JSON.parse(localStorage.getItem('wedding-saved-config'));
     
+    // TỰ ĐỘNG XÓA CACHE BỘ NHỚ LOCALSTORAGE KHI PHÁT HIỆN CÓ PHIÊN BẢN CODE MỚI
+    if (localConfig && localConfig.config_version !== DEFAULT_WEDDING_CONFIG.config_version) {
+      console.warn("Phát hiện phiên bản mã nguồn mới! Tự động làm sạch cache cấu hình trình duyệt.");
+      localStorage.removeItem('wedding-saved-config');
+      localConfig = null;
+    }
+    
     // Parse mảng gallery_images nếu lưu ở dạng String trong localStorage
     if (localConfig && typeof localConfig.gallery_images === 'string') {
       try {
