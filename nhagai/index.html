@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=../?side=nhagai">
+  <title>Đang chuyển hướng - Lễ Vu Quy</title>
+  <script>
+    // Giữ nguyên toàn bộ các tham số URL hiện tại như ?to=... để cá nhân hóa lời chào
+    const currentParams = window.location.search;
+    const cleanSearch = currentParams ? currentParams : "";
+    const prefix = cleanSearch ? (cleanSearch.includes('side=') ? "" : "&side=nhagai") : "?side=nhagai";
+    
+    // Chuyển hướng về trang chủ kèm theo tham số phân hệ nhà gái
+    window.location.replace("../" + cleanSearch + prefix);
+  </script>
+</head>
+<body>
+  <div style="font-family: sans-serif; text-align: center; margin-top: 100px; color: #666;">
+    <p>Đang chuẩn bị thiệp mời Lễ Vu Quy...</p>
+    <p style="font-size: 0.8rem;">Vui lòng đợi trong giây lát.</p>
+  </div>
+</body>
+</html>

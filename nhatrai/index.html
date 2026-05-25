@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=../?side=nhatrai">
+  <title>Đang chuyển hướng - Lễ Thành Hôn</title>
+  <script>
+    // Giữ nguyên toàn bộ các tham số URL hiện tại như ?to=... để cá nhân hóa lời chào
+    const currentParams = window.location.search;
+    const cleanSearch = currentParams ? currentParams : "";
+    const prefix = cleanSearch ? (cleanSearch.includes('side=') ? "" : "&side=nhatrai") : "?side=nhatrai";
+    
+    // Chuyển hướng về trang chủ kèm theo tham số phân hệ nhà trai
+    window.location.replace("../" + cleanSearch + prefix);
+  </script>
+</head>
+<body>
+  <div style="font-family: sans-serif; text-align: center; margin-top: 100px; color: #666;">
+    <p>Đang chuẩn bị thiệp mời Lễ Thành Hôn...</p>
+    <p style="font-size: 0.8rem;">Vui lòng đợi trong giây lát.</p>
+  </div>
+</body>
+</html>
