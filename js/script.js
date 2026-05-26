@@ -83,6 +83,29 @@ function loadLocalConfiguration() {
   applyConfigToDOM(window.weddingConfig);
 }
 
+function normalizeStoryDate(rawDate) {
+  if (rawDate === undefined || rawDate === null) return '';
+  const value = String(rawDate).trim();
+  if (!value) return '';
+
+  // Nếu chuỗi chỉ chứa ký tự ISO / số / dấu giờ, chuyển về định dạng ngày thuần túy
+  if (/^[\d\-:\.TZ ]+$/.test(value)) {
+    const parsed = new Date(value);
+    if (!isNaN(parsed.getTime())) {
+      const dateText = parsed.toLocaleDateString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      const hasTime = parsed.getHours() || parsed.getMinutes();
+      const timeText = hasTime ? ` ${parsed.getHours().toString().padStart(2, '0')}:${parsed.getMinutes().toString().padStart(2, '0')}` : '';
+      return dateText + timeText;
+    }
+  }
+
+  return value;
+}
+
 async function loadGoogleSheetsConfiguration() {
   if (window.GOOGLE_SHEET_SCRIPT_URL && window.GOOGLE_SHEET_SCRIPT_URL.startsWith('http')) {
     try {
@@ -213,28 +236,28 @@ function applyConfigToDOM(config) {
 
     // 9. Câu Chuyện Tình Yêu (Love Story Timeline)
     const story1Date = document.getElementById('dyn-story-1-date');
-    if (story1Date) story1Date.textContent = config.story_1_date || '';
+    if (story1Date) story1Date.textContent = normalizeStoryDate(config.story_1_date);
     const story1Title = document.getElementById('dyn-story-1-title');
     if (story1Title) story1Title.textContent = config.story_1_title || '';
     const story1Desc = document.getElementById('dyn-story-1-desc');
     if (story1Desc) story1Desc.textContent = config.story_1_desc || '';
 
     const story2Date = document.getElementById('dyn-story-2-date');
-    if (story2Date) story2Date.textContent = config.story_2_date || '';
+    if (story2Date) story2Date.textContent = normalizeStoryDate(config.story_2_date);
     const story2Title = document.getElementById('dyn-story-2-title');
     if (story2Title) story2Title.textContent = config.story_2_title || '';
     const story2Desc = document.getElementById('dyn-story-2-desc');
     if (story2Desc) story2Desc.textContent = config.story_2_desc || '';
 
     const story3Date = document.getElementById('dyn-story-3-date');
-    if (story3Date) story3Date.textContent = config.story_3_date || '';
+    if (story3Date) story3Date.textContent = normalizeStoryDate(config.story_3_date);
     const story3Title = document.getElementById('dyn-story-3-title');
     if (story3Title) story3Title.textContent = config.story_3_title || '';
     const story3Desc = document.getElementById('dyn-story-3-desc');
     if (story3Desc) story3Desc.textContent = config.story_3_desc || '';
 
     const story4Date = document.getElementById('dyn-story-4-date');
-    if (story4Date) story4Date.textContent = config.story_4_date || '';
+    if (story4Date) story4Date.textContent = normalizeStoryDate(config.story_4_date);
     const story4Title = document.getElementById('dyn-story-4-title');
     if (story4Title) story4Title.textContent = config.story_4_title || '';
     const story4Desc = document.getElementById('dyn-story-4-desc');

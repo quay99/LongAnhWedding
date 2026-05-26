@@ -560,6 +560,44 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@media (max-width: 768px) {
+  .couple-wrapper {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .couple-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .couple-card {
+    flex: 0 0 260px;
+    max-width: 260px;
+    min-width: 260px;
+    padding: 26px 20px;
+  }
+
+  .couple-photo-frame {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 18px;
+  }
+
+  .couple-name {
+    font-size: 1.8rem;
+  }
+
+  .couple-heart-divider {
+    display: none;
+  }
+}
+
 .couple-card {
   flex: 1;
   max-width: 400px;
@@ -984,6 +1022,34 @@ h1, h2, h3, h4, h5, h6 {
 
   .gallery-item {
     margin-bottom: 10px;
+  }
+
+  .mobile-book {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-book > section {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-align: start;
+  }
+
+  .mobile-book > section .container {
+    max-width: 100%;
+    padding: 0;
   }
 }
 
