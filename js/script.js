@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Tải nhanh cấu hình cục bộ (Local/Default) để hiển thị NGAY LẬP TỨC (0ms)
   loadLocalConfiguration();
 
+  // 1.1. Nhận diện thiết bị mobile để kích hoạt giao diện tối ưu
+  initMobileDetector();
+
   // 2. CÁ NHÂN HÓA LỜI MỜI (PERSONALIZED GREETINGS)
   initPersonalizedGreeting();
 
@@ -104,6 +107,13 @@ function normalizeStoryDate(rawDate) {
   }
 
   return value;
+}
+
+function initMobileDetector() {
+  const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.matchMedia('(max-width: 768px)').matches;
+  if (isMobileDevice) {
+    document.body.classList.add('is-device-mobile');
+  }
 }
 
 async function loadGoogleSheetsConfiguration() {
