@@ -600,7 +600,7 @@ function initAudioPlayer() {
   const playBtn = document.getElementById('music-player-btn');
   const openInvitationBtn = document.getElementById('open-invitation-btn');
   const openArrowBtn = document.getElementById('open-arrow-btn');
-  const mobileSwipeArrow = document.querySelector('.mobile-swipe-arrow');
+  const mobileSwipeArrows = document.querySelectorAll('.mobile-swipe-arrow');
 
   if (!audio || !playBtn) return;
 
@@ -615,9 +615,27 @@ function initAudioPlayer() {
     playAudio();
   };
 
+  const handleSectionNavigation = (e) => {
+    const arrow = e.currentTarget;
+    const nextSectionId = arrow.getAttribute('data-next-section');
+    
+    if (nextSectionId) {
+      const nextSection = document.getElementById(nextSectionId);
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    playAudio();
+  };
+
   if (openInvitationBtn) openInvitationBtn.addEventListener('click', handleOpenInvitation);
   if (openArrowBtn) openArrowBtn.addEventListener('click', handleOpenInvitation);
-  if (mobileSwipeArrow) mobileSwipeArrow.addEventListener('click', handleOpenInvitation);
+  
+  // Gắn event listener cho tất cả các mobile-swipe-arrow
+  mobileSwipeArrows.forEach(arrow => {
+    arrow.addEventListener('click', handleSectionNavigation);
+  });
 
   // Cố gắng tự động phát nhạc khi có bất kỳ tương tác đầu tiên nào trên màn hình (Click, Chạm, Cuộn)
   const playOnInteraction = () => {

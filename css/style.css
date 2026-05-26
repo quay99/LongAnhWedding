@@ -104,12 +104,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-padding {
-  padding: 100px 24px;
+  padding: 70px 24px;
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 40px 14px;
+    padding: 35px 14px;
   }
 }
 
@@ -606,8 +606,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
-  margin-top: 40px;
+  gap: 40px;
+  margin-top: 30px;
 }
 
 @media (max-width: 992px) {
@@ -749,7 +749,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 400px;
   background-color: var(--bg-secondary);
   border-radius: 20px;
-  padding: 40px 30px;
+  padding: 30px 25px;
   text-align: center;
   box-shadow: var(--card-shadow);
   transition: transform var(--transition-speed);
@@ -764,7 +764,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  margin: 0 auto 30px;
+  margin: 0 auto 20px;
   overflow: hidden;
   border: 4px solid var(--bg-primary);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
