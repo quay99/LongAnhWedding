@@ -463,7 +463,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(10px);
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
-  pointer-events: none;
+  cursor: pointer;
 }
 
   .mobile-swipe-arrow i {
@@ -618,6 +618,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .couple-section h2,
+  .story-section h2,
+  .event-section h2,
+  .gallery-section h2,
+  .rsvp-section h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
   .couple-wrapper {
     flex-direction: column;
     align-items: center;
