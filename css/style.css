@@ -591,21 +591,22 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .couple-wrapper {
     flex-direction: column;
-    align-items: stretch;
-    gap: 24px;
-    padding: 30px 18px 10px;
+    align-items: center;
+    gap: 28px;
+    padding: 24px 18px 18px;
   }
 
   .couple-card {
-    flex: 1 1 auto;
-    max-width: 100%;
+    flex: 0 0 auto;
     width: 100%;
+    max-width: 100%;
     padding: 24px 20px;
+    margin: 0 auto;
   }
 
   .couple-photo-frame {
-    width: 170px;
-    height: 170px;
+    width: 160px;
+    height: 160px;
     margin-bottom: 18px;
   }
 
@@ -615,6 +616,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .couple-bio {
     font-size: 0.9rem;
+    line-height: 1.6;
   }
 
   .couple-heart-divider {
@@ -784,7 +786,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .couple-heart-divider {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--accent-color);
 }
 
 .couple-heart-divider i {
