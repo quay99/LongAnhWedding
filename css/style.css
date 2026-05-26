@@ -449,20 +449,19 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-swipe-arrow {
   display: none;
   position: fixed;
-  top: 50%;
+  bottom: 18px;
   right: 14px;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.28);
   background: rgba(255,255,255,0.18);
   color: #FFFFFF;
   align-items: center;
   justify-content: center;
   z-index: 1005;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
@@ -494,11 +493,23 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   margin-bottom: 20px;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+@media (max-width: 992px) {
+  .hero-couple-names {
+    font-size: 4rem;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-couple-names {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    max-width: 90vw;
+    line-height: 1.05;
   }
 }
 
@@ -1123,6 +1134,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -1136,6 +1148,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow-x: hidden;
     overflow-y: auto;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .mobile-book > section .container {
