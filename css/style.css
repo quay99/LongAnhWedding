@@ -472,11 +472,16 @@ h1, h2, h3, h4, h5, h6 {
   .mobile-swipe-arrow:hover {
     transform: scale(1.08);
     background: rgba(255, 255, 255, 1);
+  }
+
+.hero-personalized-greeting {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 12px 24px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -493,6 +498,22 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: anywhere;
   word-break: break-word;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hero-couple-names .name-line {
+  display: block;
+  line-height: 1;
+}
+
+.hero-couple-names .ampersand-line {
+  display: block;
+  font-size: 0.6em;
+  margin: 8px 0;
+  opacity: 0.9;
 }
 
 @media (max-width: 992px) {

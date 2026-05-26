@@ -157,8 +157,11 @@ function applyConfigToDOM(config) {
     const browserTitle = document.getElementById('dyn-browser-title');
     if (browserTitle) browserTitle.textContent = titleText;
     
-    const heroNames = document.getElementById('dyn-hero-couple-names');
-    if (heroNames) heroNames.textContent = `${config.groom_name} & ${config.bride_name}`;
+    // Update the 3-line name structure
+    const groomNameLine = document.getElementById('groom-name-line');
+    const brideNameLine = document.getElementById('bride-name-line');
+    if (groomNameLine) groomNameLine.textContent = config.groom_name;
+    if (brideNameLine) brideNameLine.textContent = config.bride_name;
     
     const footerNames = document.getElementById('dyn-footer-names');
     if (footerNames) footerNames.textContent = `${config.groom_name} & ${config.bride_name}`;
