@@ -451,31 +451,27 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   bottom: 18px;
   right: 14px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.18);
-  color: #FFFFFF;
-  align-items: center;
-  justify-content: center;
-  z-index: 1005;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--accent-color);
+    align-items: center;
+    justify-content: center;
+    z-index: 1005;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+  }
 
-.mobile-swipe-arrow i {
-  font-size: 1rem;
-}
+  .mobile-swipe-arrow i {
+    font-size: 1.2rem;
+  }
 
-.mobile-swipe-arrow:hover {
-  transform: translateY(-50%) scale(1.1);
-}
-
-.hero-personalized-greeting {
-  background-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
+  .mobile-swipe-arrow:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 1);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
