@@ -6,12 +6,13 @@
   <title>Đang chuyển hướng - Lễ Vu Quy</title>
   <script>
     // Giữ nguyên toàn bộ các tham số URL hiện tại như ?to=... để cá nhân hóa lời chào
-    const currentParams = window.location.search;
-    const cleanSearch = currentParams ? currentParams : "";
-    const prefix = cleanSearch ? (cleanSearch.includes('side=') ? "" : "&side=nhagai") : "?side=nhagai";
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('side')) {
+      params.set('side', 'nhagai');
+    }
     
     // Chuyển hướng về trang chủ kèm theo tham số phân hệ nhà gái
-    window.location.replace("../" + cleanSearch + prefix);
+    window.location.replace(`../?${params.toString()}`);
   </script>
 </head>
 <body>
