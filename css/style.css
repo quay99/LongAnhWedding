@@ -695,8 +695,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .timeline {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 20px 0 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .timeline::before {
-    left: 24px;
+    display: none;
+  }
+
+  .timeline-item {
+    flex: 0 0 min(88%, 320px);
+    width: auto;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+    position: relative;
+  }
+
+  .timeline-item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .timeline-badge {
+    left: 16px;
+    top: 16px;
+    transform: none;
+  }
+
+  .timeline-panel {
+    width: 100%;
+    float: none !important;
+    padding: 22px;
+    margin-left: 0;
   }
 }
 
@@ -728,12 +763,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 768px) {
-  .timeline-badge {
-    left: 24px;
-  }
-}
-
 .timeline-panel {
   width: 44%;
   padding: 30px;
@@ -750,13 +779,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline-item:nth-child(even) .timeline-panel {
   float: right;
-}
-
-@media (max-width: 768px) {
-  .timeline-panel {
-    width: calc(100% - 60px);
-    float: right !important;
-  }
 }
 
 .timeline-date {
@@ -932,6 +954,37 @@ h1, h2, h3, h4, h5, h6 {
   columns: 5 160px;
   column-gap: 12px;
   width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .gallery-grid {
+    columns: 4 140px;
+    column-gap: 12px;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    columns: 3 140px;
+    column-gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-filter-wrapper {
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .gallery-grid {
+    columns: 2 150px;
+    column-gap: 10px;
+  }
+
+  .gallery-item {
+    margin-bottom: 10px;
+  }
 }
 
 .gallery-item {
