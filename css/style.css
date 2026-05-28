@@ -2584,14 +2584,14 @@ textarea.editor-control {
   transform: translateX(-50%);
   z-index: 1900;
   width: 90%;
-  max-width: 500px;
+  max-width: 440px; /* Slimmer capsule width */
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 40px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  padding: 8px 12px;
+  padding: 6px 10px;
   box-sizing: border-box;
 }
 
@@ -2605,37 +2605,24 @@ textarea.editor-control {
 
 .nav-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
   text-decoration: none;
   color: var(--text-secondary);
-  font-size: 0.72rem;
-  font-weight: 600;
   width: 16.666%;
-  height: 48px;
+  height: 42px; /* Slimmer height */
   position: relative;
   z-index: 2;
   transition: color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s;
 }
 
 .nav-item i {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25);
 }
 
-.nav-item span {
-  font-size: 0.62rem;
-  font-weight: 700;
-  opacity: 0;
-  transform: translateY(5px);
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  white-space: nowrap;
-}
-
 .nav-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 /* Active State Styles */
@@ -2644,21 +2631,16 @@ textarea.editor-control {
 }
 
 .nav-item.active i {
-  transform: translateY(-2px) scale(1.15);
-}
-
-.nav-item.active span {
-  opacity: 1;
-  transform: translateY(0);
+  transform: scale(1.15);
 }
 
 /* Liquid Sliding Indicator Bubble */
 .nav-indicator {
   position: absolute;
-  height: 46px;
+  height: 38px; /* Perfectly sized to wrap the active icon */
   width: 16.666%; /* Matches .nav-item width */
   background: rgba(255, 255, 255, 0.85);
-  border-radius: 23px;
+  border-radius: 20px;
   z-index: 1;
   left: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
@@ -2668,21 +2650,18 @@ textarea.editor-control {
 
 @media (max-width: 480px) {
   .liquid-glass-nav {
-    bottom: 12px;
-    width: 95%;
-    padding: 6px 8px;
+    bottom: 15px;
+    width: 92%;
+    padding: 5px 8px;
   }
   .nav-item {
-    height: 42px;
+    height: 38px;
   }
   .nav-item i {
-    font-size: 1.05rem;
-  }
-  .nav-item span {
-    font-size: 0.58rem;
+    font-size: 1.15rem;
   }
   .nav-indicator {
-    height: 40px;
+    height: 34px;
   }
 }
 
