@@ -1224,19 +1224,30 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Tối ưu footer trên mobile */
   .footer {
-    padding: 24px 12px !important;
+    padding: 16px 8px !important;
   }
 
   .footer-logo {
-    font-size: 1.5rem !important;
-    margin-bottom: 6px !important;
+    font-size: 1.3rem !important;
+    margin-bottom: 4px !important;
+    white-space: nowrap !important;
   }
 
   .footer-quote {
-    font-size: 0.78rem !important;
-    margin-bottom: 12px !important;
-    line-height: 1.4 !important;
-    max-width: 320px !important;
+    font-size: 0.72rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.35 !important;
+    max-width: 290px !important;
+  }
+
+  .footer-copyright {
+    font-size: 0.6rem !important;
+    margin-top: 10px !important;
+  }
+
+  .secret-portal-trigger {
+    margin-top: 4px !important;
+    font-size: 0.62rem !important;
   }
 
   .is-device-mobile .theme-switcher,
