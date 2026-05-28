@@ -600,42 +600,99 @@ function initAudioPlayer() {
   const playBtn = document.getElementById('music-player-btn');
   const openInvitationBtn = document.getElementById('open-invitation-btn');
   const openArrowBtn = document.getElementById('open-arrow-btn');
-  const mobileSwipeArrows = document.querySelectorAll('.mobile-swipe-arrow');
+  const mobileNavArrow = document.getElementById('mobile-nav-arrow');
 
   if (!audio || !playBtn) return;
 
   playBtn.addEventListener('click', toggleAudio);
 
-  const handleOpenInvitation = () => {
-    const coupleSection = document.getElementById('couple');
-    if (coupleSection) {
-      coupleSection.scrollIntoView({ behavior: 'smooth' });
+  // Thứ tự các section trên trang (dùng để xác định section tiếp theo khi nhấn mũi tên)
+  const sectionOrder = ['hero', 'couple', 'story', 'events', 'gallery', 'rsvp'];
+  let currentSectionIndex = 0;
+
+  // Hàm điều hướng thông minh: hỗ trợ cả mobile-book (scroll ngang) và desktop (scroll dọc)
+  const navigateToSection = (targetSectionId) => {
+    const mobileBook = document.querySelector('.mobile-book');
+    const targetSection = document.getElementById(targetSectionId);
+    if (!targetSection) return;
+
+    // Kiểm tra xem có đang ở chế độ mobile-book (scroll ngang) không
+    const isMobileBookMode = mobileBook && window.getComputedStyle(mobileBook).display === 'flex';
+
+    if (isMobileBookMode) {
+      // Trong chế độ mobile-book, các section nằm ngang => scroll container theo trục X
+      const sections = Array.from(mobileBook.querySelectorAll(':scope > section'));
+      const targetIndex = sections.indexOf(targetSection);
+      if (targetIndex !== -1) {
+        const scrollTarget = mobileBook.clientWidth * targetIndex;
+        mobileBook.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+      }
+    } else {
+      // Desktop mode - scroll dọc như bình thường
+      targetSection.scrollIntoView({ behavior: 'smooth' });
     }
-    
+  };
+
+  const handleOpenInvitation = () => {
+    navigateToSection('couple');
     playAudio();
   };
 
-  const handleSectionNavigation = (e) => {
-    const arrow = e.currentTarget;
-    const nextSectionId = arrow.getAttribute('data-next-section');
-    
-    if (nextSectionId) {
-      const nextSection = document.getElementById(nextSectionId);
-      if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    
+  // Xử lý nhấn nút mũi tên điều hướng mobile toàn cục
+  const handleMobileNavArrowClick = () => {
+    const nextIndex = (currentSectionIndex + 1) % sectionOrder.length;
+    navigateToSection(sectionOrder[nextIndex]);
     playAudio();
   };
 
   if (openInvitationBtn) openInvitationBtn.addEventListener('click', handleOpenInvitation);
   if (openArrowBtn) openArrowBtn.addEventListener('click', handleOpenInvitation);
   
-  // Gắn event listener cho tất cả các mobile-swipe-arrow
-  mobileSwipeArrows.forEach(arrow => {
-    arrow.addEventListener('click', handleSectionNavigation);
-  });
+  // Gắn event listener cho nút mũi tên điều hướng mobile toàn cục
+  if (mobileNavArrow) {
+    mobileNavArrow.addEventListener('click', handleMobileNavArrowClick);
+  }
+
+  // Theo dõi section hiện tại bằng scroll listener trên mobile-book container
+  const initMobileNavTracking = () => {
+    const mobileBook = document.querySelector('.mobile-book');
+    if (!mobileBook) return;
+
+    const updateCurrentSection = () => {
+      const scrollLeft = mobileBook.scrollLeft;
+      const containerWidth = mobileBook.clientWidth;
+      const index = Math.round(scrollLeft / containerWidth);
+      currentSectionIndex = Math.min(index, sectionOrder.length - 1);
+      
+      // Ẩn mũi tên trên hero section (section đầu tiên) vì đã có nút "Mở Thiệp Cưới"
+      if (mobileNavArrow) {
+        if (currentSectionIndex === 0) {
+          mobileNavArrow.style.opacity = '0';
+          mobileNavArrow.style.pointerEvents = 'none';
+        } else {
+          mobileNavArrow.style.opacity = '1';
+          mobileNavArrow.style.pointerEvents = 'auto';
+        }
+        
+        // Đổi icon: section cuối cùng hiển thị icon quay về (undo), các section khác hiển thị mũi tên phải
+        const arrowIcon = mobileNavArrow.querySelector('i');
+        if (arrowIcon) {
+          if (currentSectionIndex === sectionOrder.length - 1) {
+            arrowIcon.className = 'fas fa-undo-alt';
+          } else {
+            arrowIcon.className = 'fas fa-chevron-right';
+          }
+        }
+      }
+    };
+
+    mobileBook.addEventListener('scroll', updateCurrentSection, { passive: true });
+    // Chạy lần đầu
+    updateCurrentSection();
+  };
+
+  // Khởi tạo tracking sau khi DOM đã sẵn sàng
+  initMobileNavTracking();
 
   // Cố gắng tự động phát nhạc khi có bất kỳ tương tác đầu tiên nào trên màn hình (Click, Chạm, Cuộn)
   const playOnInteraction = () => {

@@ -446,7 +446,7 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.mobile-swipe-arrow {
+.mobile-nav-arrow {
   display: none;
   position: fixed;
   bottom: 18px;
@@ -462,15 +462,15 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1005;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.35s ease, background-color 0.25s ease;
   cursor: pointer;
 }
 
-  .mobile-swipe-arrow i {
+  .mobile-nav-arrow i {
     font-size: 1.2rem;
   }
 
-  .mobile-swipe-arrow:hover {
+  .mobile-nav-arrow:hover {
     transform: scale(1.08);
     background: rgba(255, 255, 255, 1);
   }
@@ -671,7 +671,7 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-.is-device-mobile .mobile-swipe-arrow {
+.is-device-mobile .mobile-nav-arrow {
   display: flex;
 }
 
@@ -685,7 +685,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 
-  .mobile-swipe-arrow {
+  .mobile-nav-arrow {
     display: flex;
   }
 
@@ -902,7 +902,7 @@ h1, h2, h3, h4, h5, h6 {
     width: calc(100% - 70px);
     float: none !important;
     padding: 22px;
-    margin-left: 0;
+    margin-left: 56px;
   }
 }
 
@@ -1181,11 +1181,36 @@ h1, h2, h3, h4, h5, h6 {
     overflow-y: auto;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    padding-bottom: 70px; /* Khoảng trống phía dưới để nội dung không bị che bởi nút mũi tên cố định */
   }
 
   .mobile-book > section .container {
     max-width: 100%;
     padding: 0 12px;
+  }
+
+  /* Tối ưu event card trên mobile */
+  .event-card {
+    padding: 30px 20px;
+  }
+
+  .event-wrapper {
+    margin-top: 30px;
+    gap: 24px;
+  }
+
+  /* Tối ưu footer trên mobile */
+  .footer {
+    padding: 40px 16px;
+  }
+
+  .footer-logo {
+    font-size: 2rem;
+  }
+
+  .footer-quote {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
   }
 
   .is-device-mobile .theme-switcher,
