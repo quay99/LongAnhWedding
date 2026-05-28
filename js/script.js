@@ -54,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 10.3. KÍCH HOẠT NÚT CHIA SẺ THIỆP CƯỚI
   initShareModal();
 
+  // 10.4. KÍCH HOẠT THANH NAV NỔI LIQUID GLASS
+  initLiquidNav();
+
   // 11. TẢI CẤU HÌNH TỪ GOOGLE SHEETS KHÔNG ĐỒNG BỘ (Chạy ngầm - Không chặn hiển thị)
   loadGoogleSheetsConfiguration();
 });
@@ -1202,7 +1205,13 @@ function appendWishToUI(wish) {
       <span class="wish-tag ${tagClass}">${sideText}</span>
     </div>
     <p class="wish-message">${escapeHTML(wish.message)}</p>
-    <span class="wish-date">${wish.date || "Vừa xong"}</span>
+    <div class="wish-footer">
+      <span class="wish-date">${wish.date || "Vừa xong"}</span>
+      <button class="wish-heart-btn" onclick="reactToWish(this)" aria-label="Thả tim">
+        <i class="far fa-heart"></i>
+        <span class="heart-count">${Math.floor(Math.random() * 4) + 1}</span>
+      </button>
+    </div>
   `;
 
   wishesWrapper.insertBefore(wishCard, wishesWrapper.firstChild);
@@ -1442,4 +1451,152 @@ function triggerConfettiCelebration() {
   }
   
   update();
+}
+
+/**
+ * Proposal #1: Liquid Glass Navigation Bar
+ */
+function initLiquidNav() {
+  const navItems = document.querySelectorAll('.nav-item');
+  const indicator = document.querySelector('.nav-indicator');
+  
+  if (!navItems.length || !indicator) return;
+  
+  function setActiveIndex(index) {
+    navItems.forEach((item, idx) => {
+      if (idx === index) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+    indicator.style.left = `${index * 16.666}%`;
+  }
+  
+  navItems.forEach((item, index) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute('href').replace('#', '');
+      const targetSection = document.getElementById(targetId);
+      
+      if (targetSection) {
+        setActiveIndex(index);
+        
+        // Smart scroll to section
+        const mobileBook = document.querySelector('.mobile-book');
+        const isMobileBookMode = mobileBook && window.getComputedStyle(mobileBook).display === 'flex';
+        
+        if (isMobileBookMode) {
+          const sections = Array.from(mobileBook.querySelectorAll(':scope > section'));
+          const targetIdx = sections.indexOf(targetSection);
+          if (targetIdx !== -1) {
+            mobileBook.scrollTo({ left: mobileBook.clientWidth * targetIdx, behavior: 'smooth' });
+          }
+        } else {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // Track active section on scroll
+  const sections = Array.from(document.querySelectorAll('main > section'));
+  
+  function trackScroll() {
+    const mobileBook = document.querySelector('.mobile-book');
+    const isMobileBookMode = mobileBook && window.getComputedStyle(mobileBook).display === 'flex';
+    
+    if (isMobileBookMode) {
+      const scrollLeft = mobileBook.scrollLeft;
+      const width = mobileBook.clientWidth;
+      const index = Math.round(scrollLeft / width);
+      if (index >= 0 && index < navItems.length) {
+        setActiveIndex(index);
+      }
+    } else {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      let currentSectionIdx = 0;
+      sections.forEach((sec, idx) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= windowHeight * 0.4 && rect.bottom >= windowHeight * 0.4) {
+          currentSectionIdx = idx;
+        }
+      });
+      if (currentSectionIdx >= 0 && currentSectionIdx < navItems.length) {
+        setActiveIndex(currentSectionIdx);
+      }
+    }
+  }
+
+  const mobileBook = document.querySelector('.mobile-book');
+  if (mobileBook) {
+    mobileBook.addEventListener('scroll', trackScroll, { passive: true });
+  }
+  window.addEventListener('scroll', trackScroll, { passive: true });
+  trackScroll();
+}
+
+/**
+ * Proposal #4: Interactive Wish reacts & tiny floating hearts burst
+ */
+function reactToWish(btn) {
+  const icon = btn.querySelector('i');
+  const countEl = btn.querySelector('.heart-count');
+  let count = parseInt(countEl.textContent);
+  
+  if (btn.classList.contains('liked')) {
+    btn.classList.remove('liked');
+    icon.className = 'far fa-heart';
+    countEl.textContent = count - 1;
+  } else {
+    btn.classList.add('liked');
+    icon.className = 'fas fa-heart';
+    countEl.textContent = count + 1;
+    createMiniHeartBursts(btn);
+  }
+}
+
+function createMiniHeartBursts(btn) {
+  const rect = btn.getBoundingClientRect();
+  for (let i = 0; i < 6; i++) {
+    const heart = document.createElement('i');
+    heart.className = 'fas fa-heart mini-heart';
+    heart.style.position = 'fixed';
+    heart.style.left = `${rect.left + rect.width / 2}px`;
+    heart.style.top = `${rect.top}px`;
+    heart.style.color = 'var(--accent-color)';
+    heart.style.fontSize = `${Math.random() * 8 + 6}px`;
+    heart.style.pointerEvents = 'none';
+    heart.style.zIndex = '9999';
+    
+    const angle = (Math.random() * 360 * Math.PI) / 180;
+    const speed = Math.random() * 4 + 2;
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed - 2;
+    
+    document.body.appendChild(heart);
+    
+    let opacity = 1;
+    let x = rect.left + rect.width / 2;
+    let y = rect.top;
+    
+    function animate() {
+      x += vx;
+      y += vy;
+      opacity -= 0.03;
+      
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+      heart.style.opacity = opacity;
+      
+      if (opacity > 0) {
+        requestAnimationFrame(animate);
+      } else {
+        heart.remove();
+      }
+    }
+    animate();
+  }
 }
