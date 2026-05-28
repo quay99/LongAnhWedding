@@ -494,7 +494,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 5rem;
   line-height: 1.1;
   margin-bottom: 20px;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -506,26 +506,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-couple-names .name-line {
-  display: inline-block;
+  display: block;
   line-height: 1;
-  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #FF758C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  padding: 5px 0;
 }
 
 .hero-couple-names .ampersand-line {
-  display: inline-block;
+  display: block;
   font-size: 0.6em;
   margin: 8px 0;
   opacity: 0.9;
-  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #FF758C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
 }
 
 @media (max-width: 992px) {
@@ -910,10 +899,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .timeline-panel {
-    width: calc(100% - 76px);
+    width: calc(100% - 84px);
     float: none !important;
     padding: 20px;
-    margin-left: 60px;
+    margin-left: 68px;
   }
 }
 

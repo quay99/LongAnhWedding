@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 10. NÚT CHUYỂN BẬT/TẮT HIỆU ỨNG HOA RƠI
   initParticleToggle();
 
-  // 10.1. KÍCH HOẠT HIỆU ỨNG PARALLAX SCROLL CHO ẢNH BÌA
-  initParallaxHero();
+
 
   // 10.2. KÍCH HOẠT ĐƯỜNG NỐI TIMELINE TĂNG TRƯỞNG ĐỘNG
   initTimelineProgress();
@@ -166,11 +165,7 @@ function applyConfigToDOM(config) {
     const browserTitle = document.getElementById('dyn-browser-title');
     if (browserTitle) browserTitle.textContent = titleText;
     
-    // Update the 3-line name structure
-    const groomNameLine = document.getElementById('groom-name-line');
-    const brideNameLine = document.getElementById('bride-name-line');
-    if (groomNameLine) groomNameLine.textContent = config.groom_name;
-    if (brideNameLine) brideNameLine.textContent = config.bride_name;
+    // Keep the couple names in the hero section static as requested
     
     const footerNames = document.getElementById('dyn-footer-names');
     if (footerNames) footerNames.textContent = `${config.groom_name} & ${config.bride_name}`;
@@ -1258,33 +1253,7 @@ function initParticleToggle() {
    11. ANTIGRAVITY PREMIUM ENHANCEMENTS IMPLEMENTATION
    ========================================================================== */
 
-/**
- * Proposal #1: Parallax Scrolling Effect for Hero Cover Background
- */
-function initParallaxHero() {
-  const heroSlide = document.getElementById('dyn-hero-bg');
-  if (!heroSlide) return;
 
-  // Vertical Parallax Scroll (Desktop)
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY <= window.innerHeight) {
-      heroSlide.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0) scale(1.08)`;
-    }
-  }, { passive: true });
-
-  // Horizontal Parallax Swipe (Mobile Book Mode)
-  const mobileBook = document.querySelector('.mobile-book');
-  if (mobileBook) {
-    mobileBook.addEventListener('scroll', () => {
-      const scrollLeft = mobileBook.scrollLeft;
-      const width = mobileBook.clientWidth;
-      if (scrollLeft < width) {
-        heroSlide.style.transform = `translate3d(${-scrollLeft * 0.3}px, 0, 0) scale(1.08)`;
-      }
-    }, { passive: true });
-  }
-}
 
 /**
  * Proposal #2: Dynamic Glowing Timeline Progress Line
