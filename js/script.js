@@ -46,6 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // 10. NÚT CHUYỂN BẬT/TẮT HIỆU ỨNG HOA RƠI
   initParticleToggle();
 
+  // 10.1. KÍCH HOẠT HIỆU ỨNG PARALLAX SCROLL CHO ẢNH BÌA
+  initParallaxHero();
+
+  // 10.2. KÍCH HOẠT ĐƯỜNG NỐI TIMELINE TĂNG TRƯỞNG ĐỘNG
+  initTimelineProgress();
+
+  // 10.3. KÍCH HOẠT NÚT CHIA SẺ THIỆP CƯỚI
+  initShareModal();
+
   // 11. TẢI CẤU HÌNH TỪ GOOGLE SHEETS KHÔNG ĐỒNG BỘ (Chạy ngầm - Không chặn hiển thị)
   loadGoogleSheetsConfiguration();
 });
@@ -294,7 +303,10 @@ function applyConfigToDOM(config) {
             <div class="gallery-img-wrapper">
               <img src="${imgObj.url}" alt="Ảnh cưới ${idx + 1}" loading="lazy">
               <div class="gallery-overlay">
-                <div class="gallery-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+                <div class="gallery-overlay-content">
+                  <div class="gallery-overlay-icon"><i class="fas fa-expand-alt"></i></div>
+                  <span class="gallery-overlay-text">Xem chi tiết</span>
+                </div>
               </div>
             </div>
           `;
@@ -585,10 +597,31 @@ function initCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    daysVal.textContent = days.toString().padStart(2, '0');
-    hoursVal.textContent = hours.toString().padStart(2, '0');
-    minutesVal.textContent = minutes.toString().padStart(2, '0');
-    secondsVal.textContent = seconds.toString().padStart(2, '0');
+    const dStr = days.toString().padStart(2, '0');
+    const hStr = hours.toString().padStart(2, '0');
+    const mStr = minutes.toString().padStart(2, '0');
+    const sStr = seconds.toString().padStart(2, '0');
+
+    if (daysVal.textContent !== dStr) {
+      daysVal.textContent = dStr;
+      daysVal.parentElement.classList.add('flip-anim');
+      setTimeout(() => daysVal.parentElement.classList.remove('flip-anim'), 400);
+    }
+    if (hoursVal.textContent !== hStr) {
+      hoursVal.textContent = hStr;
+      hoursVal.parentElement.classList.add('flip-anim');
+      setTimeout(() => hoursVal.parentElement.classList.remove('flip-anim'), 400);
+    }
+    if (minutesVal.textContent !== mStr) {
+      minutesVal.textContent = mStr;
+      minutesVal.parentElement.classList.add('flip-anim');
+      setTimeout(() => minutesVal.parentElement.classList.remove('flip-anim'), 400);
+    }
+    if (secondsVal.textContent !== sStr) {
+      secondsVal.textContent = sStr;
+      secondsVal.parentElement.classList.add('flip-anim');
+      setTimeout(() => secondsVal.parentElement.classList.remove('flip-anim'), 400);
+    }
   }, 1000);
 }
 
@@ -1055,7 +1088,19 @@ function initRSVPForm() {
     if (loading) loading.style.display = 'none';
     if (submitBtn) submitBtn.disabled = false;
     
-    alert(`Cảm ơn ${data.name} đã xác nhận tham dự lễ cưới của chúng tôi!`);
+    // Confetti celebration!
+    triggerConfettiCelebration();
+
+    // Elegant non-blocking Toast notification
+    const toast = document.getElementById('toast-notification');
+    const toastMessage = document.getElementById('toast-message');
+    if (toast && toastMessage) {
+      toastMessage.textContent = `Cảm ơn ${data.name} đã gửi lời chúc ngọt ngào!`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    } else {
+      alert(`Cảm ơn ${data.name} đã xác nhận tham dự lễ cưới của chúng tôi!`);
+    }
     
     if (data.message) {
       appendWishToUI({
@@ -1207,4 +1252,225 @@ function initParticleToggle() {
       toggleBtn.style.color = '#CCCCCC';
     }
   });
+}
+
+/* ==========================================================================
+   11. ANTIGRAVITY PREMIUM ENHANCEMENTS IMPLEMENTATION
+   ========================================================================== */
+
+/**
+ * Proposal #1: Parallax Scrolling Effect for Hero Cover Background
+ */
+function initParallaxHero() {
+  const heroSlide = document.getElementById('dyn-hero-bg');
+  if (!heroSlide) return;
+
+  // Vertical Parallax Scroll (Desktop)
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY <= window.innerHeight) {
+      heroSlide.style.transform = `translate3d(0, ${scrollY * 0.35}px, 0) scale(1.08)`;
+    }
+  }, { passive: true });
+
+  // Horizontal Parallax Swipe (Mobile Book Mode)
+  const mobileBook = document.querySelector('.mobile-book');
+  if (mobileBook) {
+    mobileBook.addEventListener('scroll', () => {
+      const scrollLeft = mobileBook.scrollLeft;
+      const width = mobileBook.clientWidth;
+      if (scrollLeft < width) {
+        heroSlide.style.transform = `translate3d(${-scrollLeft * 0.3}px, 0, 0) scale(1.08)`;
+      }
+    }, { passive: true });
+  }
+}
+
+/**
+ * Proposal #2: Dynamic Glowing Timeline Progress Line
+ */
+function initTimelineProgress() {
+  const timeline = document.querySelector('.timeline');
+  if (!timeline) return;
+
+  function updateProgress() {
+    const rect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Animate timeline connector color from grey to gold/rose accent
+    const startPoint = windowHeight * 0.85; 
+    const endPoint = windowHeight * 0.15;   
+    const totalHeight = rect.height;
+    const currentTop = rect.top;
+    
+    const scrolled = startPoint - currentTop;
+    let progress = (scrolled / totalHeight) * 100;
+    progress = Math.max(0, Math.min(100, progress));
+    
+    timeline.style.setProperty('--line-progress', `${progress}%`);
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress(); // Run once initially
+
+  // Mobile book mode internal scroll check (vertical scroll within #story section)
+  const storySection = document.getElementById('story');
+  if (storySection) {
+    storySection.addEventListener('scroll', () => {
+      const scrollTop = storySection.scrollTop;
+      const scrollHeight = storySection.scrollHeight - storySection.clientHeight;
+      if (scrollHeight > 0) {
+        const progress = (scrollTop / scrollHeight) * 100;
+        timeline.style.setProperty('--line-progress', `${progress}%`);
+      }
+    }, { passive: true });
+  }
+}
+
+/**
+ * Proposal #8: Share Modal Quick Invitation Sharing
+ */
+function initShareModal() {
+  const shareBtn = document.getElementById('share-btn');
+  const shareModal = document.getElementById('share-modal');
+  const shareClose = document.getElementById('share-modal-close');
+  const copyBtn = document.getElementById('share-copy-btn');
+  const fbBtn = document.getElementById('share-fb-btn');
+  const zaloBtn = document.getElementById('share-zalo-btn');
+  const toast = document.getElementById('toast-notification');
+
+  if (!shareBtn || !shareModal || !shareClose) return;
+
+  shareBtn.addEventListener('click', () => {
+    const currentUrl = window.location.href;
+    if (fbBtn) fbBtn.setAttribute('href', `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`);
+    if (zaloBtn) zaloBtn.setAttribute('href', `https://sp.zalo.me/share_to_zalo?url=${encodeURIComponent(currentUrl)}`);
+    
+    shareModal.classList.add('active');
+  });
+
+  shareClose.addEventListener('click', () => {
+    shareModal.classList.remove('active');
+  });
+
+  shareModal.addEventListener('click', (e) => {
+    if (e.target === shareModal) {
+      shareModal.classList.remove('active');
+    }
+  });
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const currentUrl = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(currentUrl).then(showToast).catch(copyFallback);
+      } else {
+        copyFallback();
+      }
+    });
+  }
+
+  function copyFallback() {
+    const currentUrl = window.location.href;
+    const tempInput = document.createElement('input');
+    tempInput.value = currentUrl;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      showToast();
+    } catch (err) {
+      console.error('Failed to copy text using execCommand fallback', err);
+    }
+    document.body.removeChild(tempInput);
+  }
+
+  function showToast() {
+    shareModal.classList.remove('active');
+    if (toast) {
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  }
+}
+
+/**
+ * Proposal #10: Pure Canvas Particles Confetti Explosion Celebration
+ */
+function triggerConfettiCelebration() {
+  const duration = 3000;
+  const animationEnd = Date.now() + duration;
+  
+  const canvas = document.createElement('canvas');
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100vw';
+  canvas.style.height = '100vh';
+  canvas.style.zIndex = '9999';
+  canvas.style.pointerEvents = 'none';
+  document.body.appendChild(canvas);
+  
+  const ctx = canvas.getContext('2d');
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  
+  const colors = ['#FFE259', '#FFA751', '#FF758C', '#FF6B6B', '#4E54C8', '#86A8E7', '#91EAE4'];
+  const particles = [];
+  
+  // Confetti particles launching outwards and downwards
+  for (let i = 0; i < 150; i++) {
+    particles.push({
+      x: canvas.width / 2,
+      y: canvas.height * 0.7,
+      vx: (Math.random() - 0.5) * 16,
+      vy: -Math.random() * 22 - 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      size: Math.random() * 8 + 5,
+      rotation: Math.random() * 360,
+      rotationSpeed: (Math.random() - 0.5) * 10,
+      opacity: 1
+    });
+  }
+  
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    let active = false;
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.45; // Gravity
+      p.vx *= 0.98; // Friction
+      p.rotation += p.rotationSpeed;
+      p.opacity -= 0.009;
+      
+      if (p.opacity > 0) {
+        active = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.globalAlpha = p.opacity;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+      }
+    });
+    
+    if (active && Date.now() < animationEnd) {
+      requestAnimationFrame(update);
+    } else {
+      window.removeEventListener('resize', resizeCanvas);
+      canvas.remove();
+    }
+  }
+  
+  update();
 }

@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <!-- 4. Bộ Điều Khiển Phụ (Music Player + Particle Toggle) -->
+  <!-- 4. Bộ Điều Khiển Phụ (Music Player + Particle Toggle + Share Button) -->
   <div class="floating-controls">
     <!-- Nút Bật/Tắt Cánh hoa rơi -->
     <button class="particle-toggle-btn" id="particle-toggle-btn" title="Tắt cánh hoa rơi">
@@ -54,6 +54,11 @@
         <span></span>
       </div>
       <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Nút Chia Sẻ (Share Button) -->
+    <button class="share-btn-widget" id="share-btn" title="Chia sẻ thiệp cưới">
+      <i class="fas fa-share-alt"></i>
     </button>
   </div>
 
@@ -348,7 +353,11 @@
       
       <!-- Lưới ảnh so le tự nhiên Masonry Grid -->
       <div class="gallery-grid" id="dyn-gallery-grid">
-        <!-- Được kết xuất động 100% bằng JavaScript -->
+        <!-- Skeleton Loading Placeholders -->
+        <div class="gallery-skeleton"></div>
+        <div class="gallery-skeleton"></div>
+        <div class="gallery-skeleton"></div>
+        <div class="gallery-skeleton"></div>
       </div>
     </div>
   </section>
@@ -884,6 +893,38 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ==========================================================================
+       POPUP CHIA SẺ THIỆP CƯỚI (SHARE MODAL)
+       ========================================================================== -->
+  <div class="share-modal" id="share-modal">
+    <div class="share-modal-content">
+      <button class="share-modal-close" id="share-modal-close"><i class="fas fa-times"></i></button>
+      <h3 class="font-script share-modal-title">Chia Sẻ Niềm Vui</h3>
+      <p class="share-modal-desc">Gửi lời mời trân trọng nhất của chúng mình đến những người yêu thương.</p>
+      
+      <div class="share-options">
+        <a href="#" class="share-option-btn share-facebook" id="share-fb-btn" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+          <span>Facebook</span>
+        </a>
+        <a href="#" class="share-option-btn share-zalo" id="share-zalo-btn" target="_blank">
+          <i class="fas fa-comment"></i>
+          <span>Zalo</span>
+        </a>
+        <button class="share-option-btn share-copy" id="share-copy-btn">
+          <i class="fas fa-link"></i>
+          <span>Copy Link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Toast Notification -->
+  <div class="toast-notification" id="toast-notification">
+    <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+    <span id="toast-message">Đã sao chép liên kết thành công!</span>
   </div>
 
   <!-- Javascript Scripts -->

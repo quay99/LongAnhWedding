@@ -494,7 +494,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 5rem;
   line-height: 1.1;
   margin-bottom: 20px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
@@ -506,15 +506,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-couple-names .name-line {
-  display: block;
+  display: inline-block;
   line-height: 1;
+  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #FF758C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  padding: 5px 0;
 }
 
 .hero-couple-names .ampersand-line {
-  display: block;
+  display: inline-block;
   font-size: 0.6em;
   margin: 8px 0;
   opacity: 0.9;
+  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #FF758C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 @media (max-width: 992px) {
@@ -874,7 +885,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background-color: var(--border-color);
+  background: linear-gradient(to bottom, var(--accent-color) var(--line-progress, 0%), var(--border-color) var(--line-progress, 0%));
   transform: translateX(-50%);
 }
 
@@ -895,14 +906,14 @@ h1, h2, h3, h4, h5, h6 {
 
   .timeline-badge {
     left: 24px;
-    transform: none;
+    transform: translateX(-50%);
   }
 
   .timeline-panel {
-    width: calc(100% - 70px);
+    width: calc(100% - 76px);
     float: none !important;
-    padding: 22px;
-    margin-left: 56px;
+    padding: 20px;
+    margin-left: 60px;
   }
 }
 
@@ -2279,6 +2290,275 @@ textarea.editor-control {
   }
   100% {
     transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* ==========================================================================
+   ELEGANT ENHANCEMENTS BY ANTIGRAVITY
+   ========================================================================== */
+
+/* 1. Countdown 3D Flip Clock Animation */
+.hero-countdown {
+  perspective: 400px; /* 3D perspective for flip animations */
+}
+
+.countdown-card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.countdown-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+@keyframes flipCard {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.countdown-card.flip-anim {
+  animation: flipCard 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 2. Gallery Hover Slide-Up Content */
+.gallery-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 10;
+}
+
+.gallery-item:hover .gallery-overlay-content {
+  transform: translateY(0);
+}
+
+.gallery-overlay-text {
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* 3. Skeleton Loading Animation */
+.gallery-skeleton {
+  height: 250px;
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border-color) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: loadingSkeleton 1.5s infinite;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+@keyframes loadingSkeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 4. Floating Share Button & Modal */
+.share-btn-widget {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.share-btn-widget:hover {
+  transform: scale(1.08);
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+  border-color: var(--accent-color);
+}
+
+.share-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.share-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.share-modal-content {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 35px 25px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+.share-modal.active .share-modal-content {
+  transform: scale(1);
+}
+
+.share-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.share-modal-close:hover {
+  color: var(--accent-color);
+}
+
+.share-modal-title {
+  font-size: 2.2rem;
+  color: var(--accent-color);
+  margin-bottom: 12px;
+}
+
+.share-modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.share-options {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.share-option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 15px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.share-option-btn i {
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.share-option-btn:hover {
+  background-color: var(--bg-primary);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+}
+
+.share-option-btn:hover i {
+  transform: scale(1.15);
+}
+
+.share-facebook i { color: #1877F2; }
+.share-zalo i { color: #0068FF; }
+.share-copy i { color: var(--accent-color); }
+
+/* Toast Notification Styling */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 2100;
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25), opacity 0.4s;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .share-modal-content {
+    padding: 25px 15px;
+    max-width: 320px;
+  }
+  .share-modal-title {
+    font-size: 1.8rem;
+  }
+  .share-option-btn {
+    padding: 10px 5px;
+    font-size: 0.75rem;
+  }
+  .share-option-btn i {
+    font-size: 1.2rem;
   }
 }
 
