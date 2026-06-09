@@ -2754,3 +2754,21 @@ textarea.editor-control {
   }
 }
 
+/* Custom styles for section titles in serif font */
+.section-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 2.4rem !important;
+  color: var(--accent-color) !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 0 !important;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.7rem !important;
+    letter-spacing: 1px !important;
+  }
+}

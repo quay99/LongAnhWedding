@@ -78,17 +78,7 @@
     <div class="hero-content-wrapper">
       <div class="hero-wedding-tag" id="dyn-hero-wedding-tag">Lễ Thành Hôn</div>
       
-      <!-- Khung chào cá nhân hóa (Hiện động nhờ JS tham số URL ?to=...) -->
-      <div class="hero-personalized-greeting" id="personalized-greeting">
-        <i class="fas fa-envelope-open-text" style="margin-right:8px; color:var(--accent-color);"></i>
-        Kính mời: <span id="greeting-guest-name">Khách mời</span>
-      </div>
-      
-      <h1 class="hero-couple-names font-script" id="dyn-hero-couple-names">
-        <span class="name-line" id="groom-name-line">Đình Long</span>
-        <span class="ampersand-line">&</span>
-        <span class="name-line" id="bride-name-line">Ngọc Ánh</span>
-      </h1>
+      <h1 class="hero-couple-names font-script" id="dyn-hero-couple-names">Đình Long & Trần Ánh</h1>
       <div class="hero-wedding-date" id="dyn-hero-wedding-date">02/08/2026</div>
       
       <!-- Bộ đếm ngược thời gian (Countdown Timer) -->
@@ -114,8 +104,15 @@
       <button class="btn-primary" id="open-invitation-btn">
         <i class="fas fa-heart" style="margin-right: 8px;"></i> Mở Thiệp Cưới
       </button>
+
+      <!-- Khung chào cá nhân hóa (Hiện động nhờ JS tham số URL ?to=...) -->
+      <div class="hero-personalized-greeting" id="personalized-greeting" style="margin-top: 25px; margin-bottom: 0; text-align: center; width: auto; max-width: 90%;">
+        <i class="fas fa-envelope-open-text" style="margin-bottom: 6px; color:var(--accent-color); font-size: 1.1rem;"></i><br>
+        Trân trọng kính mời:<br>
+        <span id="greeting-guest-name" style="font-weight: 700; font-size: 1.15rem; display: inline-block; margin-top: 4px;">Khách mời</span>
+      </div>
       
-      <div class="scroll-btn-wrapper" style="margin-top: 30px; cursor: pointer;" id="open-arrow-btn">
+      <div class="scroll-btn-wrapper" style="margin-top: 25px; cursor: pointer;" id="open-arrow-btn">
         <i class="fas fa-chevron-down" style="font-size: 1.5rem; opacity: 0.8;"></i>
       </div>
     </div>
@@ -126,7 +123,7 @@
        ========================================================================== -->
   <section class="couple-section section-padding" id="couple">
     <div class="container text-center reveal">
-      <h2 class="font-script" style="font-size: 3rem; color: var(--accent-color);">Cô Dâu & Chú Rể</h2>
+      <h2 class="section-title">Cô Dâu & Chú Rể</h2>
       <div class="decorator-divider"><i class="fas fa-heart"></i></div>
       <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 50px; font-size: 0.9rem;">
         Được gặp nhau, yêu nhau và cùng nhau về chung một nhà là định mệnh ngọt ngào nhất trong cuộc đời của chúng mình.
@@ -136,11 +133,17 @@
         <!-- Chú Rể -->
         <div class="couple-card border-box">
           <div class="couple-photo-frame">
-            <img id="dyn-groom-photo" src="CD ANH/DSC03817_1.JPG" alt="Chú Rể" loading="lazy">
+            <img id="dyn-groom-photo" src="CD ANH/groom.jpg" alt="Chú Rể" loading="lazy">
           </div>
           <div class="couple-role">Chú Rể</div>
           <h3 class="couple-name font-script" id="dyn-groom-name">Đình Long</h3>
-          <p class="couple-bio" id="dyn-groom-bio">Một chàng trai thích trải nghiệm, kiên trì và luôn mang năng lượng ấm áp. Với anh, che chở và mang lại hạnh phúc trọn vẹn cho Ngọc Ánh là sứ mệnh cả cuộc đời.</p>
+          <div class="parents-info" style="margin-top: 20px; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary); border-top: 1px dashed var(--border-color); padding-top: 15px; text-align: center;">
+            <p style="margin-bottom: 5px;">Bố: <strong style="color: var(--text-primary);">Lê Đình Dũng</strong></p>
+            <p>Mẹ: <strong style="color: var(--text-primary);">Nguyễn Thị Duyên</strong></p>
+          </div>
+          <div class="couple-social">
+            <a id="dyn-groom-fb" href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          </div>
         </div>
         
         <!-- Trái tim ngăn cách đối xứng -->
@@ -151,11 +154,17 @@
         <!-- Cô Dâu -->
         <div class="couple-card border-box">
           <div class="couple-photo-frame">
-            <img id="dyn-bride-photo" src="CD ANH/DSC03871_1.JPG" alt="Cô Dâu" loading="lazy">
+            <img id="dyn-bride-photo" src="CD ANH/bride.jpg" alt="Cô Dâu" loading="lazy">
           </div>
           <div class="couple-role">Cô Dâu</div>
-          <h3 class="couple-name font-script" id="dyn-bride-name">Ngọc Ánh</h3>
-          <p class="couple-bio" id="dyn-bride-bio">Cô gái nhạy cảm, thích cắm hoa và luôn tin vào những điều kỳ diệu của tình yêu. Hạnh phúc lớn nhất là khi tìm thấy Đình Long - mảnh ghép định mệnh của đời mình.</p>
+          <h3 class="couple-name font-script" id="dyn-bride-name">Trần Ánh</h3>
+          <div class="parents-info" style="margin-top: 20px; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary); border-top: 1px dashed var(--border-color); padding-top: 15px; text-align: center;">
+            <p style="margin-bottom: 5px;">Bố: <strong style="color: var(--text-primary);">Trần Đức Cảnh</strong></p>
+            <p>Mẹ: <strong style="color: var(--text-primary);">Hoàng Thị Đượm</strong></p>
+          </div>
+          <div class="couple-social">
+            <a id="dyn-bride-fb" href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -167,7 +176,7 @@
   <section class="story-section section-padding" id="story">
     <div class="container reveal">
       <div class="text-center">
-        <h2 class="font-script" style="font-size: 3rem; color: var(--accent-color);">Câu Chuyện Tình Yêu</h2>
+        <h2 class="section-title">Câu Chuyện Tình Yêu</h2>
         <div class="decorator-divider"><i class="fas fa-heart"></i></div>
         <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; font-size: 0.9rem;">
           Mỗi khoảnh khắc trôi qua đều vẽ nên bức tranh tình yêu tuyệt đẹp. Hãy cùng nhìn lại hành trình ngọt ngào của chúng mình nhé!
@@ -224,7 +233,7 @@
   <section class="event-section section-padding" id="events">
     <div class="container reveal">
       <div class="text-center">
-        <h2 class="font-script" style="font-size: 3rem; color: var(--accent-color);">Thời Gian & Địa Điểm</h2>
+        <h2 class="section-title">Thời Gian & Địa Điểm</h2>
         <div class="decorator-divider"><i class="fas fa-heart"></i></div>
         <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 50px; font-size: 0.9rem;">
           Trân trọng kính mời quý khách tới tham dự ngày vui chung đôi cùng hai gia đình chúng tôi.
@@ -331,7 +340,7 @@
   <section class="gallery-section section-padding" id="gallery">
     <div class="container reveal">
       <div class="text-center">
-        <h2 class="font-script" style="font-size: 3rem; color: var(--accent-color);">Album Ảnh Cưới</h2>
+        <h2 class="section-title">Album Ảnh Cưới</h2>
         <div class="decorator-divider"><i class="fas fa-heart"></i></div>
         <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px; font-size: 0.9rem;">
           Lưu giữ những khoảnh khắc hạnh phúc đong đầy của Đình Long & Ngọc Ánh. Tình yêu qua từng ống kính nghệ thuật.
@@ -372,7 +381,7 @@
   <section class="rsvp-section section-padding" id="rsvp">
     <div class="container reveal">
       <div class="text-center">
-        <h2 class="font-script" style="font-size: 3rem; color: var(--accent-color);">Xác Nhận Tham Dự & Lời Chúc</h2>
+        <h2 class="section-title">Xác Nhận Tham Dự & Lời Chúc</h2>
         <div class="decorator-divider"><i class="fas fa-heart"></i></div>
         <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px; font-size: 0.9rem;">
           Sự hiện diện của bạn là niềm vinh hạnh to lớn cho hai gia đình chúng tôi. Hãy cho chúng tôi biết kế hoạch tham dự và gửi những lời nhắn ngọt ngào của bạn nhé!

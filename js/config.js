@@ -16,7 +16,7 @@ const DEFAULT_WEDDING_CONFIG = {
   groom_name: "Đình Long",
   groom_fullname: "Lê Đình Long",
   groom_bio: "Một chàng trai thích trải nghiệm, kiên trì và luôn mang năng lượng ấm áp. Với anh, che chở và mang lại hạnh phúc trọn vẹn cho Trần Ánh là sứ mệnh cả cuộc đời.",
-  groom_photo: "CD ANH/DSC03817_1.JPG",
+  groom_photo: "CD ANH/groom.jpg",
   groom_facebook: "#",
   groom_instagram: "#",
   
@@ -24,7 +24,7 @@ const DEFAULT_WEDDING_CONFIG = {
   bride_name: "Trần Ánh",
   bride_fullname: "Trần Thị Ánh",
   bride_bio: "Cô gái nhạy cảm, thích cắm hoa và luôn tin vào những điều kỳ diệu của tình yêu. Hạnh phúc lớn nhất là khi tìm thấy Đình Long - mảnh ghép định mệnh của đời mình.",
-  bride_photo: "CD ANH/DSC03871_1.JPG",
+  bride_photo: "CD ANH/bride.jpg",
   bride_facebook: "#",
   bride_instagram: "#",
   
@@ -62,18 +62,15 @@ const DEFAULT_WEDDING_CONFIG = {
   story_4_desc: "Hai năm một chặng đường yêu thương tha thiết, giờ đây chúng mình cùng nhau bước sang trang mới của cuộc đời. Một tổ ấm ngập tràn tiếng cười, tình thương và sự tôn trọng lẫn nhau đang chờ đợi phía trước.",
   
   // 7. BÌA & MẢNG DỮ LIỆU ALBUM ẢNH KHÔNG GIỚI HẠN (DYNAMIC UNLIMITED WEDDING GALLERY)
-  cover_photo: "CD ANH/DSC03755_1.JPG",
+  cover_photo: "CD ANH/Page.jpg",
   cover_position: "center top",
   
   gallery_images: [
-    { url: "CD ANH/DSC03955_1.JPG", category: "dating" },
-    { url: "CD ANH/DSC04000_1.JPG", category: "prewedding" },
-    { url: "CD ANH/DSC04145_1.JPG", category: "dating" },
-    { url: "CD ANH/DSC04180_1.JPG", category: "prewedding" },
-    { url: "CD ANH/DSC04201_1.JPG", category: "prewedding" },
-    { url: "CD ANH/DSC04229_1.JPG", category: "dating" },
-    { url: "CD ANH/DSC04278_1.JPG", category: "prewedding" },
-    { url: "CD ANH/DSC04296_1.JPG", category: "prewedding" }
+    { url: "CD ANH/pw1.jpg", category: "prewedding" },
+    { url: "CD ANH/pw2.jpg", category: "prewedding" },
+    { url: "CD ANH/pw3.jpg", category: "prewedding" },
+    { url: "CD ANH/pw4.jpg", category: "prewedding" },
+    { url: "CD ANH/pw5.jpg", category: "prewedding" }
   ]
 };
 
