@@ -105,12 +105,7 @@
         <i class="fas fa-heart" style="margin-right: 8px;"></i> Mở Thiệp Cưới
       </button>
 
-      <!-- Khung chào cá nhân hóa (Hiện động nhờ JS tham số URL ?to=...) -->
-      <div class="hero-personalized-greeting" id="personalized-greeting" style="margin-top: 25px; margin-bottom: 0; text-align: center; width: auto; max-width: 90%;">
-        <i class="fas fa-envelope-open-text" style="margin-bottom: 6px; color:var(--accent-color); font-size: 1.1rem;"></i><br>
-        Trân trọng kính mời:<br>
-        <span id="greeting-guest-name" style="font-weight: 700; font-size: 1.15rem; display: inline-block; margin-top: 4px;">Khách mời</span>
-      </div>
+
       
       <div class="scroll-btn-wrapper" style="margin-top: 25px; cursor: pointer;" id="open-arrow-btn">
         <i class="fas fa-chevron-down" style="font-size: 1.5rem; opacity: 0.8;"></i>
@@ -118,31 +113,45 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       SECTION 2: COUPLE PROFILES (THÔNG TIN CÔ DÂU CHÚ RỂ DYNAMIC)
-       ========================================================================== -->
   <section class="couple-section section-padding" id="couple">
-    <div class="container text-center reveal">
-      <h2 class="section-title">Cô Dâu & Chú Rể</h2>
-      <div class="decorator-divider"><i class="fas fa-heart"></i></div>
-      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 50px; font-size: 0.9rem;">
-        Được gặp nhau, yêu nhau và cùng nhau về chung một nhà là định mệnh ngọt ngào nhất trong cuộc đời của chúng mình.
-      </p>
-      
+    <div class="container reveal">
+      <!-- Khung mời cưới -->
+      <div class="invitation-box text-center" style="margin-bottom: 40px; text-align: center;">
+        <p style="font-size: 1.1rem; margin-bottom: 5px; color: var(--text-primary); font-weight: 500;">Trân trọng kính mời:</p>
+        <h3 id="dyn-invitation-guest-name" style="font-family: var(--font-primary); font-weight: 700; font-size: 1.45rem; color: var(--accent-color); margin: 8px 0; display: none;"></h3>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); margin-top: 5px;">Đến dự buổi tiệc chung vui cùng gia đình chúng tôi</p>
+      </div>
+
+      <!-- Thông tin phụ huynh 2 bên -->
+      <div class="parents-row" style="display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 1px dashed var(--border-color); padding-bottom: 25px;">
+        <!-- Nhà Gái -->
+        <div class="parent-column" style="width: 45%; text-align: center;">
+          <h4 style="font-family: var(--font-primary); font-weight: 700; font-size: 1.05rem; color: var(--accent-color); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Nhà Gái</h4>
+          <p style="font-size: 0.95rem; margin-bottom: 5px; color: var(--text-secondary);">Bố: <strong style="color: var(--text-primary);">Trần Đức Cảnh</strong></p>
+          <p style="font-size: 0.95rem; color: var(--text-secondary);">Mẹ: <strong style="color: var(--text-primary);">Hoàng Thị Đượm</strong></p>
+        </div>
+        
+        <!-- Divider nhỏ ngăn cách -->
+        <div style="width: 1px; background-color: var(--border-color); height: 50px; align-self: center;"></div>
+        
+        <!-- Nhà Trai -->
+        <div class="parent-column" style="width: 45%; text-align: center;">
+          <h4 style="font-family: var(--font-primary); font-weight: 700; font-size: 1.05rem; color: var(--accent-color); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Nhà Trai</h4>
+          <p style="font-size: 0.95rem; margin-bottom: 5px; color: var(--text-secondary);">Bố: <strong style="color: var(--text-primary);">Lê Đình Dũng</strong></p>
+          <p style="font-size: 0.95rem; color: var(--text-secondary);">Mẹ: <strong style="color: var(--text-primary);">Nguyễn Thị Duyên</strong></p>
+        </div>
+      </div>
+
       <div class="couple-wrapper">
-        <!-- Chú Rể -->
+        <!-- Cô Dâu -->
         <div class="couple-card border-box">
           <div class="couple-photo-frame">
-            <img id="dyn-groom-photo" src="CD ANH/groom.jpg" alt="Chú Rể" loading="lazy">
+            <img id="dyn-bride-photo" src="CD ANH/bride.jpg" alt="Cô Dâu" loading="lazy">
           </div>
-          <div class="couple-role">Chú Rể</div>
-          <h3 class="couple-name font-script" id="dyn-groom-name">Đình Long</h3>
-          <div class="parents-info" style="margin-top: 20px; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary); border-top: 1px dashed var(--border-color); padding-top: 15px; text-align: center;">
-            <p style="margin-bottom: 5px;">Bố: <strong style="color: var(--text-primary);">Lê Đình Dũng</strong></p>
-            <p>Mẹ: <strong style="color: var(--text-primary);">Nguyễn Thị Duyên</strong></p>
-          </div>
+          <div class="couple-role">Cô Dâu</div>
+          <h3 class="couple-name font-script" id="dyn-bride-name">Trần Ánh</h3>
           <div class="couple-social">
-            <a id="dyn-groom-fb" href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a id="dyn-bride-fb" href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
         
@@ -151,19 +160,15 @@
           <i class="fas fa-heart"></i>
         </div>
         
-        <!-- Cô Dâu -->
+        <!-- Chú Rể -->
         <div class="couple-card border-box">
           <div class="couple-photo-frame">
-            <img id="dyn-bride-photo" src="CD ANH/bride.jpg" alt="Cô Dâu" loading="lazy">
+            <img id="dyn-groom-photo" src="CD ANH/groom.jpg" alt="Chú Rể" loading="lazy">
           </div>
-          <div class="couple-role">Cô Dâu</div>
-          <h3 class="couple-name font-script" id="dyn-bride-name">Trần Ánh</h3>
-          <div class="parents-info" style="margin-top: 20px; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary); border-top: 1px dashed var(--border-color); padding-top: 15px; text-align: center;">
-            <p style="margin-bottom: 5px;">Bố: <strong style="color: var(--text-primary);">Trần Đức Cảnh</strong></p>
-            <p>Mẹ: <strong style="color: var(--text-primary);">Hoàng Thị Đượm</strong></p>
-          </div>
+          <div class="couple-role">Chú Rể</div>
+          <h3 class="couple-name font-script" id="dyn-groom-name">Đình Long</h3>
           <div class="couple-social">
-            <a id="dyn-bride-fb" href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a id="dyn-groom-fb" href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
       </div>

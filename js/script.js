@@ -458,6 +458,12 @@ function initPersonalizedGreeting() {
       greetingGuestName.textContent = decodedName;
     }
 
+    const invitationGuestName = document.getElementById('dyn-invitation-guest-name');
+    if (invitationGuestName) {
+      invitationGuestName.textContent = decodedName;
+      invitationGuestName.style.display = 'block';
+    }
+
     if (rsvpNameInput) {
       rsvpNameInput.value = decodedName;
     }
