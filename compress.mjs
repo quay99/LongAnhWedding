@@ -5,7 +5,7 @@ import path from 'path';
 const TARGET_DIR = 'CD ANH';
 const MAX_DIMENSION = 1600; // Độ phân giải cực sắc nét cho màn hình Retina
 const JPEG_QUALITY = 80;    // Chất lượng 80% (chuẩn tối ưu cho web, giảm 99% dung lượng mà không bể hình)
-const SIZE_THRESHOLD_KB = 50; // Bỏ qua các ảnh đã có dung lượng nhỏ dưới 50KB
+const SIZE_THRESHOLD_KB = 400; // Bỏ qua các ảnh đã có dung lượng nhỏ dưới 400KB
 
 async function compressAll() {
   console.log('=== TRÌNH TỐI ƯU HÓA HÌNH ẢNH DÀNH CHO THIỆP CƯỚI ===\n');
