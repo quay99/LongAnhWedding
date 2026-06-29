@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiquidNav();
 
   // 11. TẢI CẤU HÌNH TỪ GOOGLE SHEETS KHÔNG ĐỒNG BỘ (Chạy ngầm - Không chặn hiển thị)
-  loadGoogleSheetsConfiguration();
+  // loadGoogleSheetsConfiguration(); // Đã dừng tải cấu hình từ Google Sheets theo yêu cầu, chỉ tải cấu hình cục bộ từ js/config.js
 });
 
 /* ==========================================================================
