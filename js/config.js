@@ -34,7 +34,7 @@ const DEFAULT_WEDDING_CONFIG = {
   vuquy_venue: "Địa điểm tổ chức",
   vuquy_address: "Hội trường A, Trung tâm hội nghị & tiệc cưới Hồ Cô Tiên",
   vuquy_map: "https://maps.app.goo.gl/ApqJ2mN2VrrBq6Xx5",
-  vuquy_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Vu+Quy+Đình+Long+&amp;Trần+Ánh&dates=20260725T020000Z/20260725T050000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Vu+Quy+tại+Tư+gia+nhà+gái&location=Cột+8,+Phường+Hạ+Long,+Tỉnh+Quảng+Ninh",
+  vuquy_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Vu+Quy+Đình+Long+&amp;Trần+Ánh&dates=20260725T020000Z/20260725T050000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Vu+Quy+tại+Tư+gia+nhà+gái&location=Hội+trường+A,+Trung+tâm+hội+nghị&tiệc+cưới+Hồ+Cô+Tiên",
   
   // 5. LỄ THÀNH HÔN - NHÀ TRAI (THANH HON EVENT)
   thanhhon_time: "17:00 - Chủ Nhật, 02/08/2026",
