@@ -1462,6 +1462,12 @@ function initLiquidNav() {
   
   if (!navItems.length || !indicator) return;
   
+  const itemWidth = 100 / navItems.length;
+  indicator.style.width = `${itemWidth}%`;
+  navItems.forEach(item => {
+    item.style.width = `${itemWidth}%`;
+  });
+  
   function setActiveIndex(index) {
     navItems.forEach((item, idx) => {
       if (idx === index) {
@@ -1470,7 +1476,7 @@ function initLiquidNav() {
         item.classList.remove('active');
       }
     });
-    indicator.style.left = `${index * 16.666}%`;
+    indicator.style.left = `${index * itemWidth}%`;
   }
   
   navItems.forEach((item, index) => {
