@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 
 const TARGET_DIR = 'CD ANH';
-const MAX_DIMENSION = 1600; // Độ phân giải cực sắc nét cho màn hình Retina
-const JPEG_QUALITY = 80;    // Chất lượng 80% (chuẩn tối ưu cho web, giảm 99% dung lượng mà không bể hình)
+const MAX_DIMENSION = 2000; // Độ phân giải cực sắc nét cho màn hình Retina
+const JPEG_QUALITY = 85;    // Chất lượng 85% (cho dung lượng 0.2MB - 0.5MB sắc nét vượt trội)
 const SIZE_THRESHOLD_KB = 400; // Bỏ qua các ảnh đã có dung lượng nhỏ dưới 400KB
 
 async function compressAll() {
@@ -20,7 +20,8 @@ async function compressAll() {
     const ext = path.extname(file).toLowerCase();
     const isImage = ['.jpg', '.jpeg', '.png'].includes(ext);
     const isTestFile = file.startsWith('test_') || file.startsWith('test_output');
-    return isImage && !isTestFile;
+    const isProtected = file.startsWith('pw') || file.startsWith('groom') || file.startsWith('bride') || file.startsWith('Page');
+    return isImage && !isTestFile && !isProtected;
   });
 
   console.log(`Tìm thấy ${files.length} hình ảnh cần kiểm tra tối ưu...\n`);
