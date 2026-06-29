@@ -21,7 +21,7 @@ const DEFAULT_WEDDING_CONFIG = {
   groom_instagram: "#",
   
   // 3. CÔ DÂU (BRIDE)
-  bride_name: "Trần Ánh",
+  bride_name: "Ngọc Ánh",
   bride_fullname: "Trần Thị Ánh",
   bride_bio: "Cô gái nhạy cảm, thích cắm hoa và luôn tin vào những điều kỳ diệu của tình yêu. Hạnh phúc lớn nhất là khi tìm thấy Đình Long - mảnh ghép định mệnh của đời mình.",
   bride_photo: "CD ANH/bride.jpg",
@@ -31,8 +31,8 @@ const DEFAULT_WEDDING_CONFIG = {
   // 4. LỄ VU QUY - NHÀ GÁI (VU QUY EVENT)
   vuquy_time: "11:00 - Thứ Bảy, 25/07/2026",
   vuquy_lunar: "(Tức ngày 12 tháng 6 năm Bính Ngọ)",
-  vuquy_venue: "Địa điểm tổ chức",
-  vuquy_address: "Hội trường A, Trung tâm hội nghị & tiệc cưới Hồ Cô Tiên",
+  vuquy_venue: "Hội trường A, Trung tâm hội nghị & tiệc cưới Hồ Cô Tiên",
+  vuquy_address: "Thành phố Hạ Long, Quảng Ninh",
   vuquy_map: "https://maps.app.goo.gl/ApqJ2mN2VrrBq6Xx5",
   vuquy_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Vu+Quy+Đình+Long+&amp;Trần+Ánh&dates=20260725T020000Z/20260725T050000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Vu+Quy+tại+Tư+gia+nhà+gái&location=Hội+trường+A,+Trung+tâm+hội+nghị&tiệc+cưới+Hồ+Cô+Tiên",
   
@@ -41,7 +41,7 @@ const DEFAULT_WEDDING_CONFIG = {
   thanhhon_lunar: "(Tức ngày 20 tháng 6 năm Bính Ngọ)",
   thanhhon_venue: "Trung tâm hội nghị & tiệc cưới Royal Lotus Hotel Danang",
   thanhhon_address: "120A Nguyễn Văn Thoại, Ngũ Hành Sơn, Đà Nẵng",
-  thanhhon_map: "https://maps.google.com/?q=Romance+Palace+456+Nguyen+Hue,+Quan+1,+TP+HCM",
+  thanhhon_map: "https://maps.app.goo.gl/URmiXSMSrE3mMcA67",
   thanhhon_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Thành+Hôn+Đình+Long+&amp;Trần+Ánh&dates=20260802T100000Z/20260802T140000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Thành+Hôn+tại+Royal+Lotus+Hotel+Danang&location=120A+Nguyễn+Văn+Thoại,+Ngũ+Hành+Sơn,+Đà+Nẵng",
   
   // 6. CÂU CHUYỆN TÌNH YÊU (LOVE STORY TIMELINE)
