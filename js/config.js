@@ -29,11 +29,11 @@ const DEFAULT_WEDDING_CONFIG = {
   bride_instagram: "#",
   
   // 4. LỄ VU QUY - NHÀ GÁI (VU QUY EVENT)
-  vuquy_time: "09:00 - Thứ Bảy, 25/07/2026",
+  vuquy_time: "11:00 - Thứ Bảy, 25/07/2026",
   vuquy_lunar: "(Tức ngày 12 tháng 6 năm Bính Ngọ)",
-  vuquy_venue: "Tư gia nhà gái",
-  vuquy_address: "Cột 8, Phường Hạ Long, Tỉnh Quảng Ninh",
-  vuquy_map: "https://maps.google.com/?q=123+Co+Giang,+Quan+1,+TP+HCM",
+  vuquy_venue: "Địa điểm tổ chức",
+  vuquy_address: "Hội trường A, Trung tâm hội nghị & tiệc cưới Hồ Cô Tiên",
+  vuquy_map: "https://maps.app.goo.gl/ApqJ2mN2VrrBq6Xx5",
   vuquy_calendar: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lễ+Vu+Quy+Đình+Long+&amp;Trần+Ánh&dates=20260725T020000Z/20260725T050000Z&details=Trân+trọng+kính+mời+quý+khách+tham+dự+Lễ+Vu+Quy+tại+Tư+gia+nhà+gái&location=Cột+8,+Phường+Hạ+Long,+Tỉnh+Quảng+Ninh",
   
   // 5. LỄ THÀNH HÔN - NHÀ TRAI (THANH HON EVENT)
