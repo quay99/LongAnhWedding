@@ -70,7 +70,24 @@ const DEFAULT_WEDDING_CONFIG = {
     { url: "CD ANH/pw2.jpg", category: "prewedding" },
     { url: "CD ANH/pw3.jpg", category: "prewedding" },
     { url: "CD ANH/pw4.jpg", category: "prewedding" },
-    { url: "CD ANH/pw5.jpg", category: "prewedding" }
+    { url: "CD ANH/pw5.jpg", category: "prewedding" },
+    { url: "CD ANH/pw6.jpg", category: "prewedding" },
+    { url: "CD ANH/pw7.jpg", category: "prewedding" },
+    { url: "CD ANH/pw8.jpg", category: "prewedding" },
+    { url: "CD ANH/pw9.jpg", category: "prewedding" },
+    { url: "CD ANH/pw10.jpg", category: "prewedding" },
+    { url: "CD ANH/pw11.jpg", category: "prewedding" },
+    { url: "CD ANH/pw12.jpg", category: "prewedding" },
+    { url: "CD ANH/pw13.jpg", category: "prewedding" },
+    { url: "CD ANH/pw14.jpg", category: "prewedding" },
+    { url: "CD ANH/pw15.jpg", category: "prewedding" },
+    { url: "CD ANH/pw16.jpg", category: "prewedding" },
+    { url: "CD ANH/pw17.jpg", category: "prewedding" },
+    { url: "CD ANH/pw18.jpg", category: "prewedding" },
+    { url: "CD ANH/pw19.jpg", category: "prewedding" },
+    { url: "CD ANH/pw20.jpg", category: "prewedding" },
+    { url: "CD ANH/pw21.jpg", category: "prewedding" },
+    { url: "CD ANH/pw22.jpg", category: "prewedding" }
   ]
 };
 
