@@ -407,6 +407,11 @@ function initPersonalizedGreeting() {
     }
   }
 
+  const heroCoupleNames = document.getElementById('dyn-hero-couple-names');
+  if (heroCoupleNames && window.weddingConfig && window.weddingConfig.groom_name && window.weddingConfig.bride_name) {
+    heroCoupleNames.textContent = `${window.weddingConfig.groom_name} & ${window.weddingConfig.bride_name}`;
+  }
+
   if (heroDate && parsedDate) {
     const day = parsedDate.getDate().toString().padStart(2, '0');
     const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
