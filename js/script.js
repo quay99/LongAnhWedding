@@ -649,7 +649,7 @@ function initAudioPlayer() {
   playBtn.addEventListener('click', toggleAudio);
 
   // Thứ tự các section trên trang (dùng để xác định section tiếp theo khi nhấn mũi tên)
-  const sectionOrder = ['hero', 'couple', 'story', 'events', 'gallery', 'rsvp'];
+  const sectionOrder = ['hero', 'couple', 'events', 'gallery', 'rsvp'];
   let currentSectionIndex = 0;
 
   // Hàm điều hướng thông minh: hỗ trợ cả mobile-book (scroll ngang) và desktop (scroll dọc)
@@ -1529,6 +1529,15 @@ function initLiquidNav() {
       const index = Math.round(scrollLeft / width);
       if (index >= 0 && index < navItems.length) {
         setActiveIndex(index);
+        
+        // Auto-activate reveal on the current section for mobile swipe
+        const activeSection = sections[index];
+        if (activeSection) {
+          const revealContainer = activeSection.querySelector('.reveal');
+          if (revealContainer) {
+            revealContainer.classList.add('active');
+          }
+        }
       }
     } else {
       const scrollY = window.scrollY;
