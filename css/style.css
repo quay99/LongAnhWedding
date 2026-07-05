@@ -714,7 +714,7 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1 !important;
     width: 48% !important;
     max-width: 48% !important;
-    padding: 10px 4px !important;
+    padding: 10px 2px !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -722,10 +722,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .couple-photo-frame {
-    width: 100px !important;
-    height: 135px !important;
+    width: 135px !important;
+    height: 185px !important;
     border-width: 2px !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     margin-bottom: 10px !important;
   }
 
@@ -846,8 +846,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .couple-photo-frame {
-  width: 200px;
-  height: 270px;
+  width: 240px;
+  height: 330px;
   border-radius: 12px;
   margin: 0 auto 20px;
   overflow: hidden;
@@ -2846,5 +2846,60 @@ textarea.editor-control {
     flex-direction: column;
     justify-content: center;
     min-height: calc(100vh - 120px);
+  }
+}
+
+/* Luxury Invitation Card Frame in Section 2 */
+.invitation-card-frame {
+  background-color: #FFFDF9; /* Elegant warm ivory */
+  border: 1px solid var(--accent-color);
+  padding: 5px;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(197, 168, 128, 0.08);
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.invitation-card-inner {
+  border: 1px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 35px 25px;
+  position: relative;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+}
+
+.gold-divider::after {
+  background: linear-gradient(to left, transparent, var(--accent-color), transparent);
+}
+
+@media (max-width: 768px) {
+  .invitation-card-frame {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .invitation-card-inner {
+    padding: 20px 10px;
+  }
+  .gold-divider {
+    margin: 15px auto;
   }
 }
